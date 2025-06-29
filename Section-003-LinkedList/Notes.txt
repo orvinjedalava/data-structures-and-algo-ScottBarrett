@@ -1,0 +1,19 @@
+Question: Adding an item at the end of a linked list?
+O(1)
+
+Question: Removing an item at the end of a linked list?
+O(n)
+why? 
+We have to iterate through and start at the head going to the tail
+
+Question: Adding an item before the head of a linked list?
+O(1)
+
+Question: Removing an item from the beginning of a linked list?
+O(1)
+
+Question: Insertingand Removing an item in the middle of a linked list?
+O(n) 
+Why?
+We have to iterate through and start on the head. Always get the worst case scenario
+
