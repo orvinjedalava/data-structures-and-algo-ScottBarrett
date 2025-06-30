@@ -1,7 +1,8 @@
 using System;
 using System.Text.Json;
 
-var linkedList = new LinkedListObject(10);
+var linkedList = new LinkedListObject(7);
+linkedList.Push(4);
 Console.WriteLine(JsonSerializer.Serialize(linkedList));
 
 public class LinkedListObject
@@ -27,6 +28,23 @@ public class LinkedListObject
       Console.WriteLine(currentNode.Value);
       currentNode = currentNode.Next;
     }
+  }
+
+  public LinkedListObject Push(int value)
+  {
+    var newNode = new Node(value);
+    if (this.Head == null)
+    {
+      this.Head = newNode;
+      this.Tail = newNode;
+    }
+    else
+    {
+      this.Tail.Next = newNode;
+      this.Tail = newNode;
+    }
+
+    return this;
   }
 
 }
