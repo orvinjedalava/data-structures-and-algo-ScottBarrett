@@ -1,13 +1,17 @@
 import LinkedList from './LinkedList.js';
 
-let myLinkedList_Pop = new LinkedList(7);
-myLinkedList_Pop.push(4)
-myLinkedList_Pop.printList();
+let myLinkedList = new LinkedList(7);
+myLinkedList.push(4)
+myLinkedList.printList();
 
-let popped = myLinkedList_Pop.pop();
-myLinkedList_Pop.printList();
+let popped = myLinkedList.pop();
+myLinkedList.printList();
 console.log(`Popped value: ${popped.value}`);
 
-popped = myLinkedList_Pop.pop();
-myLinkedList_Pop.printList();
+popped = myLinkedList.pop();
+myLinkedList.printList();
 console.log(`Popped value: ${popped.value}`);
+
+let unshifted = myLinkedList.unshift(2);
+myLinkedList.printList();
+console.log(`Unshifted value: ${unshifted.head.value}`);

@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Section-003-LinkedList", "Section-003-LinkedList", "{232BB656-FECB-196A-01F3-462E4D7339B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{689EE2DC-AC86-612D-C4BD-5ED7189A01AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedListApp", "Section-003-LinkedList\csharp\LinkedListApp\LinkedListApp.csproj", "{791E0647-DA8B-DA1B-E49E-CD8B88143B62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{791E0647-DA8B-DA1B-E49E-CD8B88143B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{791E0647-DA8B-DA1B-E49E-CD8B88143B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{791E0647-DA8B-DA1B-E49E-CD8B88143B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{791E0647-DA8B-DA1B-E49E-CD8B88143B62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{689EE2DC-AC86-612D-C4BD-5ED7189A01AC} = {232BB656-FECB-196A-01F3-462E4D7339B5}
+		{791E0647-DA8B-DA1B-E49E-CD8B88143B62} = {689EE2DC-AC86-612D-C4BD-5ED7189A01AC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EF35D1B-980E-4844-B781-A7BF96340688}
+	EndGlobalSection
+EndGlobal
