@@ -66,4 +66,17 @@ export default class LinkedList {
     this.length++;
     return this;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+
+    let temp = this.head;
+    this.head = this.head.next;
+    temp.next = null; // Clear the next pointer of the removed node
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return temp;
+  }
 }

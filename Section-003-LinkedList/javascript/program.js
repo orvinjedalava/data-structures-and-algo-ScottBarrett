@@ -15,3 +15,7 @@ console.log(`Popped value: ${popped.value}`);
 let unshifted = myLinkedList.unshift(2);
 myLinkedList.printList();
 console.log(`Unshifted value: ${unshifted.head.value}`);
+
+let shifted = myLinkedList.shift();
+myLinkedList.printList();
+console.log(`Shifted value: ${shifted.value}`);
