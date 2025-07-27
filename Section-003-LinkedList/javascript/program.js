@@ -26,3 +26,6 @@ myLinkedList.printList();
 
 let getNode = myLinkedList.get(1);
 console.log(`Node at index 1: ${getNode.value}`);
+
+myLinkedList.set(1, 15);
+myLinkedList.printList();

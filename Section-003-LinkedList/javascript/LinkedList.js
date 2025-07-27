@@ -9,13 +9,14 @@ export default class LinkedList {
   }
 
   printList() {
-    console.log(this);
     let currentNode = this.head;
     while (currentNode) {
-      console.log(currentNode);
+      console.log(currentNode.value);
       currentNode = currentNode.next;
     }
   }
+
+  
 
   push(value) {
     const newNode = new Node(value);
@@ -89,5 +90,15 @@ export default class LinkedList {
     }
 
     return temp;
+  }
+
+  set(index, value) {
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    
+    return false;
   }
 }
