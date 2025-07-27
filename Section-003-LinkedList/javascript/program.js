@@ -19,3 +19,10 @@ console.log(`Unshifted value: ${unshifted.head.value}`);
 let shifted = myLinkedList.shift();
 myLinkedList.printList();
 console.log(`Shifted value: ${shifted.value}`);
+
+myLinkedList.push(10);
+myLinkedList.push(20);
+myLinkedList.printList();
+
+let getNode = myLinkedList.get(1);
+console.log(`Node at index 1: ${getNode.value}`);
