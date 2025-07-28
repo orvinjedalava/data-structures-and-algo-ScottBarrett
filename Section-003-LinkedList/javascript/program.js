@@ -37,3 +37,6 @@ myLinkedList.insert(4, 25);
 console.log(`Length after insertions: ${myLinkedList.length}`);
 
 myLinkedList.printList();
+
+console.log(`Removing node at index 2: ${myLinkedList.remove(2).value}`);
+myLinkedList.printList();
