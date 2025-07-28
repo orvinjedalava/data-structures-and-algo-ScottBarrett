@@ -40,3 +40,7 @@ myLinkedList.printList();
 
 console.log(`Removing node at index 2: ${myLinkedList.remove(2).value}`);
 myLinkedList.printList();
+
+console.log('Reversing the linked list');
+myLinkedList.reverse();
+myLinkedList.printList();
