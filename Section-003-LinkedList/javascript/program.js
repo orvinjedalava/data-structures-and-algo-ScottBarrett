@@ -29,3 +29,11 @@ console.log(`Node at index 1: ${getNode.value}`);
 
 myLinkedList.set(1, 15);
 myLinkedList.printList();
+
+console.log(`Length of the list: ${myLinkedList.length}`);
+myLinkedList.insert(1, 12);
+myLinkedList.insert(0, 5);
+myLinkedList.insert(4, 25);
+console.log(`Length after insertions: ${myLinkedList.length}`);
+
+myLinkedList.printList();
