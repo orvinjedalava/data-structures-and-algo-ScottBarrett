@@ -9,3 +9,10 @@ myDoublyLinkedList.push(10);
 myDoublyLinkedList.push(15);
 myDoublyLinkedList.printList();
 myDoublyLinkedList.printListBackwards();
+
+console.log("Popping the last 3 nodes from the doubly linked list:");
+myDoublyLinkedList.pop();
+myDoublyLinkedList.pop();
+myDoublyLinkedList.pop();
+myDoublyLinkedList.printList();
+myDoublyLinkedList.printListBackwards();
