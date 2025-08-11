@@ -16,3 +16,9 @@ myDoublyLinkedList.pop();
 myDoublyLinkedList.pop();
 myDoublyLinkedList.printList();
 myDoublyLinkedList.printListBackwards();
+
+console.log("Unshifting nodes to the doubly linked list:");
+myDoublyLinkedList.unshift(5);
+myDoublyLinkedList.unshift(2);
+myDoublyLinkedList.printList();
+myDoublyLinkedList.printListBackwards();
