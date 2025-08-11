@@ -28,3 +28,17 @@ myDoublyLinkedList.shift();
 myDoublyLinkedList.shift();
 myDoublyLinkedList.printList();
 myDoublyLinkedList.printListBackwards();
+
+console.log("Push 4 values to the list:");
+myDoublyLinkedList.push(4);
+myDoublyLinkedList.push(5);
+myDoublyLinkedList.push(6);
+myDoublyLinkedList.push(7);
+myDoublyLinkedList.printList();
+myDoublyLinkedList.printListBackwards();
+
+console.log("Get index 1:");
+console.log(myDoublyLinkedList.get(1));
+
+console.log("Get index 2:");
+console.log(myDoublyLinkedList.get(2));
