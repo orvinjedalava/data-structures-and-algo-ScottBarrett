@@ -50,3 +50,7 @@ myDoublyLinkedList.printList();
 console.log("Insert 50 at index 2:");
 myDoublyLinkedList.insert(2, 50);
 myDoublyLinkedList.printList();
+
+console.log("Remove index 2:");
+myDoublyLinkedList.remove(2);
+myDoublyLinkedList.printList();
