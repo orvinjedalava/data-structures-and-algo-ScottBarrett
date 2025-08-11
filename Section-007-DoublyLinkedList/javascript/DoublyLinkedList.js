@@ -165,12 +165,10 @@ export default class DoublyLinkedList {
     if (index === this.length - 1)
       return this.pop();
 
-    let before = this.get(index - 1);
-    let temp = before.next;
-    let after = temp.next;
-
-    before.next = after;
-    after.prev = before;
+    let temp = this.get(index);
+    
+    temp.prev.next = temp.next;
+    temp.next.prev = temp.prev;
     temp.next = null;
     temp.prev = null;
     this.length--;
