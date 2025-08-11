@@ -22,3 +22,9 @@ myDoublyLinkedList.unshift(5);
 myDoublyLinkedList.unshift(2);
 myDoublyLinkedList.printList();
 myDoublyLinkedList.printListBackwards();
+
+console.log("Shifting the first 2 nodes from the doubly linked list:");
+myDoublyLinkedList.shift();
+myDoublyLinkedList.shift();
+myDoublyLinkedList.printList();
+myDoublyLinkedList.printListBackwards();
