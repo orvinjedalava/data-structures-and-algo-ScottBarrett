@@ -44,5 +44,9 @@ console.log("Get index 2:");
 console.log(myDoublyLinkedList.get(2));
 
 console.log("Set index 1 to 100:");
-console.log(myDoublyLinkedList.set(1, 100));
+myDoublyLinkedList.set(1, 100);
+myDoublyLinkedList.printList();
+
+console.log("Insert 50 at index 2:");
+myDoublyLinkedList.insert(2, 50);
 myDoublyLinkedList.printList();
