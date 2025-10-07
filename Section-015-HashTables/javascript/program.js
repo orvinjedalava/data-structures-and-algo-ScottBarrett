@@ -14,3 +14,10 @@ myHashTable2.set('washers', 50);
 console.log(myHashTable2.get('bolts'));
 console.log(myHashTable2.get('washers'));
 console.log(myHashTable2.get('lumber')); // undefined
+
+let myHashTable3 = new HashTable();
+myHashTable3.set('lumber', 70);
+myHashTable3.set('bolts', 1400);
+myHashTable3.set('washers', 50);
+
+console.log(myHashTable3.keys());
