@@ -27,3 +27,18 @@ myGraph3.addEdge('C', 'A');
 console.log(myGraph3.adjacencyList);
 myGraph3.removeEdge('A', 'B');
 console.log(myGraph3.adjacencyList);
+
+let myGraph4 = new Graph();
+myGraph4.addVertex('A');
+myGraph4.addVertex('B');
+myGraph4.addVertex('C');
+myGraph4.addVertex('D');
+myGraph4.addEdge('A', 'B');
+myGraph4.addEdge('A', 'C');
+myGraph4.addEdge('B', 'D');
+myGraph4.addEdge('C', 'D');
+myGraph4.addEdge('D', 'A');
+
+console.log(myGraph4.adjacencyList);
+myGraph4.removeVertex('D');
+console.log(myGraph4.adjacencyList);
