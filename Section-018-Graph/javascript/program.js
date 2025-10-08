@@ -15,3 +15,15 @@ myGraph2.addEdge('A', 'B');
 myGraph2.addEdge('A', 'C');
 
 console.log(myGraph2.adjacencyList);
+
+let myGraph3 = new Graph();
+myGraph3.addVertex('A');
+myGraph3.addVertex('B');
+myGraph3.addVertex('C');
+myGraph3.addEdge('A', 'B');
+myGraph3.addEdge('B', 'C');
+myGraph3.addEdge('C', 'A');
+
+console.log(myGraph3.adjacencyList);
+myGraph3.removeEdge('A', 'B');
+console.log(myGraph3.adjacencyList);
