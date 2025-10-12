@@ -12,3 +12,19 @@ myHeap1.print();
 
 myHeap1.insert(75);
 myHeap1.print();
+
+const myHeap2 = new Heap();
+myHeap2.insert(95);
+myHeap2.insert(75);
+myHeap2.insert(80);
+myHeap2.insert(55);
+myHeap2.insert(60);
+myHeap2.insert(50);
+myHeap2.insert(65);
+myHeap2.print();
+
+myHeap2.remove();
+myHeap2.print();
+
+myHeap2.remove();
+myHeap2.print();
