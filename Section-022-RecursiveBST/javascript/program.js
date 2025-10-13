@@ -44,3 +44,14 @@ console.log(bst3.minValue(bst3.root));
 
 console.log("\nMinValue from root->right:");
 console.log(bst3.minValue(bst3.root.right));
+
+const bst4 = new BST();
+bst4.rInsert(2);
+bst4.rInsert(1);
+bst4.rInsert(3);
+console.log('\nInitial tree:');
+bst4.printTree();
+
+bst4.deleteNode(2);
+console.log('\nAfter deleting 2:');
+bst4.printTree();
