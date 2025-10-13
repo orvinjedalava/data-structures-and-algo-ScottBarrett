@@ -113,7 +113,7 @@ export default class BST {
       } else if (currentNode.right === null) {
         currentNode = currentNode.left;
       } else {
-        
+
       }
     }
 
@@ -122,5 +122,12 @@ export default class BST {
 
   deleteNode(value) {
     this.root = this.#deleteNode(value, this.root);
+  }
+
+  minValue(currentNode) {
+    while (currentNode.left !== null) {
+      currentNode = currentNode.left;
+    }
+    return currentNode.value;
   }
 }

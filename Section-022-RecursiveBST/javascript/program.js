@@ -25,3 +25,22 @@ bst2.rInsert(1);
 bst2.rInsert(3);
 
 bst2.printTree();
+
+const bst3 = new BST();
+console.log(bst3);
+
+console.log('Building the initial tree...');
+bst3.insert(47);
+bst3.insert(21);
+bst3.insert(76);
+bst3.insert(18);
+bst3.insert(27);
+bst3.insert(52);
+bst3.insert(82);
+bst3.printTree();
+
+console.log("\nMinValue from root:");
+console.log(bst3.minValue(bst3.root));
+
+console.log("\nMinValue from root->right:");
+console.log(bst3.minValue(bst3.root.right));
