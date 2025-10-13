@@ -97,4 +97,22 @@ export default class BST {
 
     this.#rInsert(value);
   }
+
+  #deleteNode(value, currentNode) {
+    if (currentNode === null) return null;
+
+    if (value < currentNode.value) {
+      currentNode.left = this.#deleteNode(value, currentNode.left);
+    } else if (value > currentNode.value) {
+      currentNode.right = this.#deleteNode(value, currentNode.right);
+    } else {
+      
+    }
+
+    return currentNode;
+  }
+
+  deleteNode(value) {
+    this.root = this.#deleteNode(value, this.root);
+  }
 }
