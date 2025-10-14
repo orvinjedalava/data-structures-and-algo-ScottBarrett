@@ -14,3 +14,6 @@ bst1.printTree();
 
 console.log('Breadth-First Search:');
 console.log(bst1.BFS());
+
+console.log('Depth-First Search - PreOrder:');
+console.log(bst1.DFSPreOrder());
