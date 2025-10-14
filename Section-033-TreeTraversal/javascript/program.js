@@ -17,3 +17,9 @@ console.log(bst1.BFS());
 
 console.log('Depth-First Search - PreOrder:');
 console.log(bst1.DFSPreOrder());
+
+console.log('Depth-First Search - PostOrder:');
+console.log(bst1.DFSPostOrder());
+
+console.log('Depth-First Search - InOrder:');
+console.log(bst1.DFSInOrder());
