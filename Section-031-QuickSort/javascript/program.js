@@ -16,8 +16,22 @@ function pivot(array, pivotIndex = 0, endIndex = array.length - 1) {
   return swapIndex;
 }
 
+function quickSort(array, left = 0, right = array.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(array, left, right);
+    quickSort(array, left, pivotIndex - 1);
+    quickSort(array, pivotIndex + 1, right);
+  }
+  return array;
+  
+}
+
 
 console.log('Run pivot and return the pivot index');
 const myArray1 = [4, 6, 1, 7, 3, 2, 5];
 console.log(pivot(myArray1));
 console.log(myArray1);
+
+console.log('Run quickSort and return the sorted array');
+const myArray2 = [4, 6, 1, 7, 3, 2, 5];
+console.log(quickSort(myArray2));
