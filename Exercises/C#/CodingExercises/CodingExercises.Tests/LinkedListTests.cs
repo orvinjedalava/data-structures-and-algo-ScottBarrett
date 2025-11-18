@@ -68,5 +68,20 @@ namespace CodingExercises.Tests
             Assert.That(hasLoop1, Is.True);
             Assert.That(hasLoop2, Is.False);
         }
+
+        [Theory]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 1, 5)]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 3, 3)]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 5, 1)]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 6, null)]
+        public void KthNodeFromTheEnd_Tests(int[] values, int k, int? expectedValue)
+        {
+            // Arrange
+            var list = CreateLinkedList(values);
+
+            // Act & Assert
+            var node = LinkedListExercises.KthNodeFromTheEnd(list, k);
+            Assert.That(node?.Value, Is.EqualTo(expectedValue));
+        }
     }
 }
