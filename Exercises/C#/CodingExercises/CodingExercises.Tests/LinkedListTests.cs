@@ -21,7 +21,18 @@ namespace CodingExercises.Tests
             return list;
         }
 
-
+        public LinkedList CreateLinkedListWithLoop(int[] values)
+        {
+            var listWithLoop = CreateLinkedList(new[] { 1, 2, 3, 4, 5 });
+            // Creating a loop for testing: connecting the last node to the second node
+            var tail = listWithLoop.Head;
+            while (tail.Next != null)
+            {
+                tail = tail.Next;
+            }
+            tail.Next = listWithLoop.Head.Next; // Creating loop
+            return listWithLoop;
+        }
 
         [Theory]
         [TestCase(new[] { 1, 2, 3, 4, 5 }, 3)]
@@ -40,6 +51,22 @@ namespace CodingExercises.Tests
             // Assert
             Assert.That(middleNode, Is.Not.Null);
             Assert.That(middleNode.Value, Is.EqualTo(expectedValue));
+        }
+
+        [Test]
+        public void HasLoop_Tests()
+        {
+            // Arrange
+            var listWithLoop = CreateLinkedListWithLoop(new[] { 1, 2, 3, 4, 5 });
+            var listWithoutLoop = CreateLinkedList(new[] { 1, 2, 3, 4, 5 });
+
+            // Act
+            var hasLoop1 = LinkedListExercises.HasLoop(listWithLoop);
+            var hasLoop2 = LinkedListExercises.HasLoop(listWithoutLoop);
+
+            // Assert
+            Assert.That(hasLoop1, Is.True);
+            Assert.That(hasLoop2, Is.False);
         }
     }
 }
