@@ -3,9 +3,9 @@ using System;
 
 public class LinkedList
 {
-    public Node Head { get; private set; }
-    public Node Tail { get; private set; }
-    public int Length { get; private set; }
+    public Node Head { get; set; }
+    public Node Tail { get; set; }
+    public int Length { get; set; }
 
     public LinkedList(int value)
     {

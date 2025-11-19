@@ -60,5 +60,30 @@ namespace CodingExercises.Exercises
             return second;
         }
 
+        public static LinkedList RemoveDuplicates(LinkedList list)
+        {
+            if (list.Head == null)
+                return list;
+            HashSet<int> seen = new HashSet<int>();
+            Node? current = list.Head;
+            Node? previous = null;
+            while (current != null)
+            {
+                if (seen.Contains(current.Value))
+                {
+                    previous!.Next = current.Next;
+                    list.Length--;
+                }
+                else
+                {
+                    seen.Add(current.Value);
+                    previous = current;
+                }
+                current = current.Next;
+            }
+            list.Tail = previous!;
+            return list;
+        }
+
     }
 }

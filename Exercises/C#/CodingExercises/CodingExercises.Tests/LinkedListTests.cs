@@ -83,5 +83,28 @@ namespace CodingExercises.Tests
             var node = LinkedListExercises.KthNodeFromTheEnd(list, k);
             Assert.That(node?.Value, Is.EqualTo(expectedValue));
         }
+
+        [Theory]
+        [TestCase(new[] { 1, 2, 2, 3, 4, 4, 5 }, new[] { 1, 2, 3, 4, 5 })]
+        [TestCase(new[] { 1, 1, 1, 1, 1 }, new[] { 1 })]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, new[] { 1, 2, 3, 4, 5 })]
+        [TestCase(new[] { 4, 3, 2, 1, 1, 2, 3, 4 }, new[] { 4, 3, 2, 1 })]
+        public void RemoveDuplicates_Tests(int[] values, int[] expectedValues)
+        {
+            // Arrange
+            var list = CreateLinkedList(values);
+            // Act
+            LinkedListExercises.RemoveDuplicates(list);
+            // Assert
+            //var expectedValues = new[] { 1, 2, 3, 4, 5 };
+            var currentNode = list.Head;
+            foreach (var expectedValue in expectedValues)
+            {
+                Assert.That(currentNode, Is.Not.Null);
+                Assert.That(currentNode.Value, Is.EqualTo(expectedValue));
+                currentNode = currentNode.Next;
+            }
+            Assert.That(currentNode, Is.Null); // Ensure the list ends correctly
+        }
     }
 }
