@@ -122,5 +122,32 @@ namespace CodingExercises.Tests
             // Assert
             Assert.That(result, Is.EqualTo(expectedDecimal));
         }
+
+        [Test]
+        public void PartitionList_Tests()
+        {
+            // Arrange
+            var list = CreateLinkedList(new[] { 3, 5, 8, 5, 10, 2, 1 });
+            int x = 5;
+
+            // Act
+            var partitionedList = LinkedListExercises.PartitionList(list, x);
+
+            // Assert
+            var currentNode = partitionedList.Head;
+            bool beforePartition = true;
+            while (currentNode != null)
+            {
+                if (beforePartition && currentNode.Value >= x)
+                {
+                    beforePartition = false;
+                }
+                else if (!beforePartition && currentNode.Value < x)
+                {
+                    Assert.Fail("List is not correctly partitioned.");
+                }
+                currentNode = currentNode.Next;
+            }
+        }
     }
 }
