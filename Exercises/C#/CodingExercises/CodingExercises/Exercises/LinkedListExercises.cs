@@ -85,5 +85,19 @@ namespace CodingExercises.Exercises
             return list;
         }
 
+        public static decimal BinaryToDecimal(LinkedList list)
+        {
+            if (list.Head == null)
+                return 0;
+            decimal result = 0;
+            Node? current = list.Head;
+            while (current != null)
+            {
+                result = result * 2 + current.Value;
+                current = current.Next;
+            }
+            return result;
+        }
+
     }
 }

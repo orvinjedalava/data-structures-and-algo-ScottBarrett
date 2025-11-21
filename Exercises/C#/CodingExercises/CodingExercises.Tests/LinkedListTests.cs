@@ -106,5 +106,21 @@ namespace CodingExercises.Tests
             }
             Assert.That(currentNode, Is.Null); // Ensure the list ends correctly
         }
+
+        [Theory]
+        [TestCase(new[] { 1, 0, 1, 1 }, 11)] // Binary 1011 = Decimal 11
+        [TestCase(new[] { 1, 1, 1, 1 }, 15)] // Binary 1111 = Decimal 15
+        [TestCase(new[] { 0, 0, 0, 0 }, 0)]  // Binary 0000 = Decimal 0
+        [TestCase(new[] { 1, 0, 0, 0 }, 8)]  // Binary 1000 = Decimal 8
+        public void BinaryToDecimal_Tests(int[] values, decimal expectedDecimal)
+        {
+            // Arrange
+            var list = CreateLinkedList(values);
+            // Act
+            var result = LinkedListExercises.BinaryToDecimal(list);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expectedDecimal));
+        }
     }
 }
