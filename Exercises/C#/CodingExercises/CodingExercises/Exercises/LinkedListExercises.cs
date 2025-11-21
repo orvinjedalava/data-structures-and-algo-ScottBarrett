@@ -131,5 +131,32 @@ namespace CodingExercises.Exercises
             return beforeList;
         }
 
+        public static LinkedList ReverseBetween(LinkedList list, int m, int n)
+        {
+            if (list.Head == null || m >= n)
+                return list;
+
+            Node? dummy = new Node(0);
+            dummy.Next = list.Head;
+            Node? pre = dummy;
+
+            for (int i = 1; i < m; i++)
+            {
+                pre = pre!.Next;
+            }
+
+            Node? current = pre!.Next;
+            for (int i = 0; i < n - m; i++)
+            {
+                Node? temp = current!.Next;
+                current.Next = temp!.Next;
+                temp.Next = pre.Next;
+                pre.Next = temp;
+            }
+
+            list.Head = dummy.Next;
+            return list;
+        }
+
     }
 }
