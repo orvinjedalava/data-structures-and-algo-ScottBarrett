@@ -99,5 +99,37 @@ namespace CodingExercises.Exercises
             return result;
         }
 
+        public static LinkedList PartitionList(LinkedList list, int x)
+        {
+            if (list.Head == null)
+                return list;
+
+            LinkedList beforeList = new LinkedList();
+            LinkedList afterList = new LinkedList();
+
+            Node? current = list.Head;
+            while (current != null)
+            {
+                if (current.Value < x)
+                {
+                    beforeList.Push(current.Value);
+                }
+                else
+                {
+                    afterList.Push(current.Value);
+                }
+                current = current.Next;
+            }
+
+            if (beforeList.Head == null)
+                return afterList;
+
+            beforeList.Tail!.Next = afterList.Head;
+            beforeList.Length += afterList.Length;
+            beforeList.Tail = afterList.Tail ?? beforeList.Tail;
+
+            return beforeList;
+        }
+
     }
 }
