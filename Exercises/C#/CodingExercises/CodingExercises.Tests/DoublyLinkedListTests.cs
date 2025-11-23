@@ -67,5 +67,25 @@ namespace CodingExercises.Tests
                 currentNode = currentNode.Next;
             }
         }
+
+        [Theory]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 2, 4, new[] { 1, 4, 3, 2, 5 })]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 1, 5, new[] { 5, 4, 3, 2, 1 })]
+        public void ReverseBetween_Tests(int[] values, int m, int n, int[] expectedValues)
+        {
+            // Arrange
+            var list = CreateDoublyLinkedList(values);
+            // Act
+            var reversedList = DoublyLinkedListExercises.ReverseBetween(list, m, n);
+
+            // Assert
+            var currentNode = reversedList.Head;
+            foreach (var expectedValue in expectedValues)
+            {
+                Assert.That(currentNode, Is.Not.Null);
+                Assert.That(currentNode!.Value, Is.EqualTo(expectedValue));
+                currentNode = currentNode.Next;
+            }
+        }
     }
 }

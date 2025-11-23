@@ -49,5 +49,56 @@ namespace CodingExercises.Exercises
 
             return list;
         }
+
+        public static DoublyLinkedList ReverseBetween(DoublyLinkedList list, int m, int n)
+        {
+            if (list.Head == null || m >= n)
+                return list;
+
+            var current = list.Head;
+            DoublyNode? prevM = null;
+            DoublyNode? nodeM = null;
+            int position = 1;
+
+            while (current != null && position < m)
+            {
+                prevM = current;
+                current = current.Next;
+                position++;
+            }
+
+            nodeM = current;
+            DoublyNode? prev = null;
+
+            while (current != null && position <= n)
+            {
+                var next = current.Next;
+                current.Next = prev;
+                current.Prev = next;
+                prev = current;
+                current = next;
+                position++;
+            }
+
+            if (nodeM != null)
+            {
+                nodeM.Next = current;
+                if (current != null)
+                    current.Prev = nodeM;
+            }
+
+            if (prevM != null)
+            {
+                prevM.Next = prev;
+                if (prev != null)
+                    prev.Prev = prevM;
+            }
+            else
+            {
+                list.Head = prev;
+            }
+
+            return list;
+        }
     }
 }
