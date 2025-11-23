@@ -107,5 +107,35 @@ namespace CodingExercises.Tests
                 currentNode = currentNode.Next;
             }
         }
+
+        [Theory]
+        [TestCase(new[] { 3, 5, 8, 5, 10, 2, 1 }, 5)]
+        [TestCase(new[] { 1, 4, 3, 2, 5, 2 }, 3)]
+        [TestCase(new[] { 5, 1, 2, 3, 4 }, 3)]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 6)]
+        public void PartitionList_Tests(int[] values, int x)
+        {
+            // Arrange
+            var list = CreateDoublyLinkedList(values);
+
+            // Act
+            var partitionedList = DoublyLinkedListExercises.PartitionList(list, x);
+
+            // Assert
+            var currentNode = partitionedList.Head;
+            bool beforePartition = true;
+            while (currentNode != null)
+            {
+                if (beforePartition && currentNode.Value >= x)
+                {
+                    beforePartition = false;
+                }
+                else if (!beforePartition && currentNode.Value < x)
+                {
+                    Assert.Fail("List is not correctly partitioned.");
+                }
+                currentNode = currentNode.Next;
+            }
+        }
     }
 }

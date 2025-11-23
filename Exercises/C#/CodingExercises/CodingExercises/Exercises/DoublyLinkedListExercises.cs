@@ -132,5 +132,40 @@ namespace CodingExercises.Exercises
             list.Head.Prev = null;
             return list;
         }
+
+        public static DoublyLinkedList PartitionList(DoublyLinkedList list, int x)
+        {
+            if (list.Head == null)
+                return list;
+
+            var beforeList = new DoublyLinkedList();
+            var afterList = new DoublyLinkedList();
+            var current = list.Head;
+
+            while (current != null)
+            {
+                if (current.Value < x)
+                {
+                    beforeList.Push(current.Value);
+                }
+                else
+                {
+                    afterList.Push(current.Value);
+                }
+                current = current.Next;
+            }
+
+            if (beforeList.Head == null)
+                return afterList;
+
+            beforeList.Tail!.Next = afterList.Head;
+            if (afterList.Head != null)
+                afterList.Head.Prev = beforeList.Tail;
+
+            beforeList.Length += afterList.Length;
+            beforeList.Tail = afterList.Tail ?? beforeList.Tail;
+
+            return beforeList;
+        }
     }
 }
