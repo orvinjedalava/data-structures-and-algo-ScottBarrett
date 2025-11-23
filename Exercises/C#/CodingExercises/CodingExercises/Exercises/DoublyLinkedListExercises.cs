@@ -100,5 +100,37 @@ namespace CodingExercises.Exercises
 
             return list;
         }
+
+        public static DoublyLinkedList SwapPairs(DoublyLinkedList list)
+        {
+            if (list.Head == null || list.Head.Next == null)
+                return list;
+
+            var dummy = new DoublyNode(0);
+            dummy.Next = list.Head;
+            list.Head.Prev = dummy;
+            var current = dummy;
+
+            while (current.Next != null && current.Next.Next != null)
+            {
+                var first = current.Next;
+                var second = current.Next.Next;
+
+                first.Next = second.Next;
+                if (second.Next != null)
+                    second.Next.Prev = first;
+
+                second.Prev = current;
+                second.Next = first;
+                first.Prev = second;
+                current.Next = second;
+
+                current = first;
+            }
+
+            list.Head = dummy.Next;
+            list.Head.Prev = null;
+            return list;
+        }
     }
 }

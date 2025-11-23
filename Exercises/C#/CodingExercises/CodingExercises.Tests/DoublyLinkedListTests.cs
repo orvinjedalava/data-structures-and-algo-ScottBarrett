@@ -87,5 +87,25 @@ namespace CodingExercises.Tests
                 currentNode = currentNode.Next;
             }
         }
+
+        [Theory]
+        [TestCase(new[] { 1, 2, 3, 4 }, new[] { 2, 1, 4, 3 })]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, new[] { 2, 1, 4, 3, 5 })]
+        public void SwapPairs_Tests(int[] values, int[] expectedValues)
+        {
+            // Arrange
+            var list = CreateDoublyLinkedList(values);
+            // Act
+            var swappedList = DoublyLinkedListExercises.SwapPairs(list);
+
+            // Assert
+            var currentNode = swappedList.Head;
+            foreach (var expectedValue in expectedValues)
+            {
+                Assert.That(currentNode, Is.Not.Null);
+                Assert.That(currentNode!.Value, Is.EqualTo(expectedValue));
+                currentNode = currentNode.Next;
+            }
+        }
     }
 }
