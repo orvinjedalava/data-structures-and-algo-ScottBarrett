@@ -123,12 +123,15 @@ namespace CodingExercises.Tests
             Assert.That(result, Is.EqualTo(expectedDecimal));
         }
 
-        [Test]
-        public void PartitionList_Tests()
+        [Theory]
+        [TestCase(new[] { 3, 5, 8, 5, 10, 2, 1 }, 5)]
+        [TestCase(new[] { 1, 4, 3, 2, 5, 2 }, 3)]
+        [TestCase(new[] { 5, 1, 2, 3, 4 }, 3)]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, 6)]
+        public void PartitionList_Tests(int[] values, int x)
         {
             // Arrange
-            var list = CreateLinkedList(new[] { 3, 5, 8, 5, 10, 2, 1 });
-            int x = 5;
+            var list = CreateLinkedList(values);
 
             // Act
             var partitionedList = LinkedListExercises.PartitionList(list, x);
