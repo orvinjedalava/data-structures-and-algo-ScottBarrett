@@ -24,5 +24,30 @@ namespace CodingExercises.Exercises
 
             return true;
         }
+
+        public static DoublyLinkedList Reverse(DoublyLinkedList list)
+        {
+            if (list.Head == null)
+                return list;
+
+            var current = list.Head;
+            DoublyNode? temp = null;
+
+            while (current != null)
+            {
+                temp = current.Prev;
+                current.Prev = current.Next;
+                current.Next = temp;
+                current = current.Prev;
+            }
+
+            if (temp != null)
+            {
+                list.Tail = list.Head;
+                list.Head = temp.Prev;
+            }
+
+            return list;
+        }
     }
 }
