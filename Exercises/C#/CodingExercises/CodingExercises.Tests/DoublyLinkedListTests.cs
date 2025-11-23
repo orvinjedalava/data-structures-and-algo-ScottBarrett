@@ -51,7 +51,7 @@ namespace CodingExercises.Tests
         [Theory]
         [TestCase(new[] { 1, 2, 3, 4, 5 }, new[] { 5, 4, 3, 2, 1 })]
         [TestCase(new[] { 1, 2, 3 }, new[] { 3, 2, 1 })]
-        public void ReverseBetween_Tests(int[] values, int[] expectedValues)
+        public void Reverse_Tests(int[] values, int[] expectedValues)
         {
             // Arrange
             var list = CreateDoublyLinkedList(values);
