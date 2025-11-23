@@ -158,5 +158,30 @@ namespace CodingExercises.Exercises
             return list;
         }
 
+        public static LinkedList SwapPairs(LinkedList list)
+        {
+            if (list.Head == null || list.Head.Next == null)
+                return list;
+
+            Node? dummy = new Node(0);
+            dummy.Next = list.Head;
+            Node? current = dummy;
+
+            while (current.Next != null && current.Next.Next != null)
+            {
+                Node? first = current.Next;
+                Node? second = current.Next.Next;
+
+                first.Next = second.Next;
+                second.Next = first;
+                current.Next = second;
+
+                current = first;
+            }
+
+            list.Head = dummy.Next;
+            return list;
+        }
+
     }
 }
