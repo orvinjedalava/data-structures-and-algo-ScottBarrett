@@ -2,17 +2,17 @@ using System;
 
 namespace CodingExercises.Models
 {
-  public class Stack<T>
+  public class StackModel<T>
   {
     private T[] _items;
     private int _top;
     private const int DefaultCapacity = 10;
 
-    public Stack() : this(DefaultCapacity)
+    public StackModel() : this(DefaultCapacity)
     {
     }
 
-    public Stack(int capacity)
+    public StackModel(int capacity)
     {
       if (capacity < 0)
         throw new ArgumentOutOfRangeException(nameof(capacity), "Capacity cannot be negative");
