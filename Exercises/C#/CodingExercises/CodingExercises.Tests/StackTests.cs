@@ -23,5 +23,19 @@ namespace CodingExercises.Tests
             // Assert
             Assert.That(reversed, Is.EqualTo(expectedOutput));
         }
+
+        [Theory]
+        [TestCase("(a + b) * (c + d)", true)]
+        [TestCase("((a + b)", false)]
+        [TestCase("(a + b))", false)]
+        [TestCase("((a + b) * (c + d))", true)]
+        [TestCase(")(a + b)(", false)]
+        public void ParenthesisBalanced_Tests(string expression, bool expected)
+        {
+            var isBalanced = StackExercises.ParenthesisBalanced(expression);
+
+            // Assert
+            Assert.That(isBalanced, Is.EqualTo(expected), $"Failed for expression: {expression}");
+        }
     }
 }
