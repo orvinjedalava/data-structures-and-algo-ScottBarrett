@@ -39,5 +39,30 @@ namespace CodingExercises.Exercises
             }
             return stack.Count == 0;
         }
+
+        public static Stack<int> SortStack(Stack<int> inputStack)
+        {
+            var tempStack = new Stack<int>();
+
+            while (inputStack.Count > 0)
+            {
+                int current = inputStack.Pop();
+
+                while (tempStack.Count > 0 && tempStack.Peek() > current)
+                {
+                    inputStack.Push(tempStack.Pop());
+                }
+
+                tempStack.Push(current);
+            }
+
+            var resultStack = new Stack<int>();
+            while (tempStack.Count > 0)
+            {
+                resultStack.Push(tempStack.Pop());
+            }
+
+            return resultStack;
+        }
     }
 }

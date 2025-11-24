@@ -37,5 +37,27 @@ namespace CodingExercises.Tests
             // Assert
             Assert.That(isBalanced, Is.EqualTo(expected), $"Failed for expression: {expression}");
         }
+
+        [Theory]
+        [TestCase(new int[] { 34, 3, 31, 98, 92, 23 }, new int[] { 3, 23, 31, 34, 92, 98 })]
+        [TestCase(new int[] { 5, 1, 4, 2, 8 }, new int[] { 1, 2, 4, 5, 8 })]
+        public void SortStack_Tests(int[] inputValues, int[] expectedValues)
+        {
+            // Arrange
+            var inputStack = new Stack<int>();
+            foreach (var value in inputValues)
+            {
+                inputStack.Push(value);
+            }
+
+            // Act
+            var sortedStack = StackExercises.SortStack(inputStack);
+
+            // Assert
+            foreach (var expected in expectedValues)
+            {
+                Assert.That(sortedStack.Pop(), Is.EqualTo(expected));
+            }
+        }
     }
 }
