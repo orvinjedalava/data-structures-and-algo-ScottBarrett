@@ -67,8 +67,10 @@ namespace CodingExercises.Tests
         }
 
         [Theory]
-        [TestCase(new[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4 })]
-        public void Enqueue_Tests(int[] initialValues, int[] expectedValues)
+        [TestCase(new int[] { 1, 2, 3, 4 })]
+        [TestCase(new int[] { 4, 3, 2, 1 })]
+        [TestCase(new int[] { 1, 2, 4, 3 })]
+        public void Enqueue_Tests(int[] expectedValues)
         {
             var inputStack = new Stack<int>();
             foreach (var value in expectedValues)
