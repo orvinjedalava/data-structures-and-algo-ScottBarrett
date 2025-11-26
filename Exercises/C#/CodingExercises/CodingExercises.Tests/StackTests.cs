@@ -11,6 +11,16 @@ namespace CodingExercises.Tests
         {
         }
 
+        public Stack<int> CreateStack(int[] values)
+        {
+            var inputStack = new Stack<int>();
+            foreach (var value in values)
+            {
+                inputStack.Push(value);
+            }
+            return inputStack;
+        }
+
         [Theory]
         [TestCase("hello", "olleh")]
         [TestCase("Stack", "kcatS")]
@@ -44,11 +54,7 @@ namespace CodingExercises.Tests
         public void SortStack_Tests(int[] inputValues, int[] expectedValues)
         {
             // Arrange
-            var inputStack = new Stack<int>();
-            foreach (var value in inputValues)
-            {
-                inputStack.Push(value);
-            }
+            var inputStack = CreateStack(inputValues);
 
             // Act
             var sortedStack = StackExercises.SortStack(inputStack);
@@ -57,6 +63,23 @@ namespace CodingExercises.Tests
             foreach (var expected in expectedValues)
             {
                 Assert.That(sortedStack.Pop(), Is.EqualTo(expected));
+            }
+        }
+
+        [Theory]
+        [TestCase(new[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4 })]
+        public void Enqueue_Tests(int[] initialValues, int[] expectedValues)
+        {
+            var inputStack = new Stack<int>();
+            foreach (var value in expectedValues)
+            {
+                inputStack = StackExercises.Enqueue(inputStack, value);
+            }
+
+            // Assert
+            foreach (var expected in expectedValues)
+            {
+                Assert.That(inputStack.Pop(), Is.EqualTo(expected));
             }
         }
     }

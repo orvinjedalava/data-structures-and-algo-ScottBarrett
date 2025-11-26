@@ -64,5 +64,20 @@ namespace CodingExercises.Exercises
 
             return resultStack;
         }
+
+        public static Stack<int> Enqueue(Stack<int> queueStack, int value)
+        {
+            Stack<int> tempStack = new();
+            while (queueStack.TryPeek(out _))
+            {
+                tempStack.Push(queueStack.Pop());
+            }
+            queueStack.Push(value);
+            while (tempStack.TryPeek(out _))
+            {
+                queueStack.Push(tempStack.Pop());
+            }
+            return queueStack;
+        }
     }
 }
