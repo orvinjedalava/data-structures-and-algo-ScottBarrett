@@ -42,5 +42,32 @@ namespace CodingExercises.Exercises
 
             return duplicates.ToArray();
         }
+
+        public static char? FirstNonRepeatingCharacter(string str)
+        {
+            var charCount = new Dictionary<char, int>();
+
+            foreach (var ch in str)
+            {
+                if (charCount.ContainsKey(ch))
+                {
+                    charCount[ch]++;
+                }
+                else
+                {
+                    charCount[ch] = 1;
+                }
+            }
+
+            foreach (var ch in str)
+            {
+                if (charCount[ch] == 1)
+                {
+                    return ch;
+                }
+            }
+
+            return null;
+        }
     }
 }

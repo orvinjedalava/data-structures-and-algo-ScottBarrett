@@ -38,5 +38,18 @@ namespace CodingExercises.Tests
             // Assert
             Assert.That(duplicates.OrderBy(x => x), Is.EqualTo(expectedDuplicates.OrderBy(x => x)));
         }
+
+        [Theory]
+        [TestCase("swiss", 'w')]
+        [TestCase("repeater", 'p')]
+        [TestCase("aabbcc", null)]
+        [TestCase("", null)]
+        public void FirstNonRepeatingCharacter_Tests(string input, char? expected)
+        {
+            var result = HashExercises.FirstNonRepeatingCharacter(input);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
