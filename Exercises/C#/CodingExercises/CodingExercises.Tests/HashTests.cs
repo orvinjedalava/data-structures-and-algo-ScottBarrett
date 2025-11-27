@@ -51,5 +51,28 @@ namespace CodingExercises.Tests
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void GroupAnagrams_Tests()
+        {
+            // Arrange
+            var input = new[] { "eat", "tea", "tan", "ate", "nat", "bat" };
+            var expected = new List<List<string>>
+            {
+                new List<string> { "eat", "tea", "ate" },
+                new List<string> { "tan", "nat" },
+                new List<string> { "bat" }
+            };
+
+            // Act
+            var result = HashExercises.GroupAnagrams(input);
+
+            // Assert
+            Assert.That(result.Count, Is.EqualTo(expected.Count));
+            foreach (var group in expected)
+            {
+                Assert.That(result.Any(r => r.OrderBy(x => x).SequenceEqual(group.OrderBy(x => x))), Is.True);
+            }
+        }
     }
 }

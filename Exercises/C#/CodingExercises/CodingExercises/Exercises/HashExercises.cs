@@ -69,5 +69,25 @@ namespace CodingExercises.Exercises
 
             return null;
         }
+
+        public static List<List<string>> GroupAnagrams(string[] strs)
+        {
+            var anagramMap = new Dictionary<string, List<string>>();
+
+            foreach (var str in strs)
+            {
+                var charArray = str.ToCharArray();
+                Array.Sort(charArray);
+                var key = new string(charArray);
+
+                if (!anagramMap.ContainsKey(key))
+                {
+                    anagramMap[key] = new List<string>();
+                }
+                anagramMap[key].Add(str);
+            }
+
+            return anagramMap.Values.ToList();
+        }
     }
 }
