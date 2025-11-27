@@ -106,5 +106,32 @@ namespace CodingExercises.Exercises
 
             return []; // No solution found
         }
+
+        public static List<List<int>> SubsetSum(int[] nums, int target)
+        {
+            var result = new List<List<int>>();
+            Array.Sort(nums);
+            FindSubsets(nums, target, 0, new List<int>(), result);
+            return result;
+        }
+        private static void FindSubsets(int[] nums, int target, int start, List<int> current, List<List<int>> result)
+        {
+            if (target == 0)
+            {
+                result.Add(new List<int>(current));
+                return;
+            }
+
+            for (int i = start; i < nums.Length; i++)
+            {
+                if (i > start && nums[i] == nums[i - 1]) continue; // Skip duplicates
+
+                if (nums[i] > target) break; // No need to continue if the number is greater than the target
+
+                current.Add(nums[i]);
+                FindSubsets(nums, target - nums[i], i + 1, current, result);
+                current.RemoveAt(current.Count - 1);
+            }
+        }
     }
 }

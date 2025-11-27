@@ -103,5 +103,29 @@ namespace CodingExercises.Tests
             // Assert
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void SubsetSum_Tests()
+        {
+            // Arrange
+            int[] nums = { 1, 2, 3, 4, 5 };
+            int target = 5;
+            var expected = new List<List<int>>
+            {
+                new List<int> { 5 },
+                new List<int> { 2, 3 },
+                new List<int> { 1, 4 }
+            };
+
+            // Act
+            var result = HashExercises.SubsetSum(nums, target);
+
+            // Assert
+            Assert.That(result.Count, Is.EqualTo(expected.Count));
+            foreach (var subset in expected)
+            {
+                Assert.That(result.Any(r => r.OrderBy(x => x).SequenceEqual(subset.OrderBy(x => x))), Is.True);
+            }
+        }
     }
 }
