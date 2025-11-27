@@ -26,11 +26,11 @@ namespace CodingExercises.Tests
             var listWithLoop = CreateLinkedList(new[] { 1, 2, 3, 4, 5 });
             // Creating a loop for testing: connecting the last node to the second node
             var tail = listWithLoop.Head;
-            while (tail.Next != null)
+            while (tail?.Next != null)
             {
                 tail = tail.Next;
             }
-            tail.Next = listWithLoop.Head.Next; // Creating loop
+            tail!.Next = listWithLoop.Head?.Next; // Creating loop
             return listWithLoop;
         }
 

@@ -18,14 +18,25 @@ namespace CodingExercises.Tests
         [TestCase(new[] { -1, -2, -3 }, new[] { -3, 0, 1 }, true)]
         public void ItemInCommon_Tests(int[] array1, int[] array2, bool expected)
         {
-            // Arrange
-            var hashExercises = new HashExercises();
-
             // Act
-            var result = hashExercises.ItemInCommon(array1, array2);
+            var result = HashExercises.ItemInCommon(array1, array2);
 
             // Assert
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Theory]
+        [TestCase(new[] { 1, 2, 3, 2, 4, 5, 3, 6 }, new[] { 2, 3 })]
+        [TestCase(new[] { 1, 1, 1, 1 }, new[] { 1 })]
+        [TestCase(new[] { 1, 2, 3, 4, 5 }, new int[] { })]
+        [TestCase(new int[] { }, new int[] { })]
+        public void FindDuplicates_Tests(int[] inputArray, int[] expectedDuplicates)
+        {
+            // Act
+            var duplicates = HashExercises.FindDuplicates(inputArray);
+
+            // Assert
+            Assert.That(duplicates.OrderBy(x => x), Is.EqualTo(expectedDuplicates.OrderBy(x => x)));
         }
     }
 }

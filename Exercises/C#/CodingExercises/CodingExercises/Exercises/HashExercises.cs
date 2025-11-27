@@ -4,7 +4,7 @@ namespace CodingExercises.Exercises
 {
     public class HashExercises
     {
-        public bool ItemInCommon(int[] array1, int[] array2)
+        public static bool ItemInCommon(int[] array1, int[] array2)
         {
             var items = new HashSet<int>();
             foreach (var item in array1)
@@ -21,6 +21,26 @@ namespace CodingExercises.Exercises
             }
 
             return false;
+        }
+
+        public static int[] FindDuplicates(int[] array)
+        {
+            var seen = new HashSet<int>();
+            var duplicates = new HashSet<int>();
+
+            foreach (var item in array)
+            {
+                if (seen.Contains(item))
+                {
+                    duplicates.Add(item);
+                }
+                else
+                {
+                    seen.Add(item);
+                }
+            }
+
+            return duplicates.ToArray();
         }
     }
 }
