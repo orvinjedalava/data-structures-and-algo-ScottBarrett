@@ -118,7 +118,7 @@ namespace CodingExercises.Exercises
         {
             if (target == 0)
             {
-                result.Add(new List<int>(current));
+                result.Add([.. current]);
                 return;
             }
 
